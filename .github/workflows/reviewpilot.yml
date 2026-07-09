@@ -23,6 +23,7 @@ jobs:
       - name: Install ReviewPilot
         run: |
           pip install "git+https://github.com/aruxyz/reviewpilot-browser-use.git"
+          pip install playwright
           python -m playwright install chromium --with-deps
 
       - name: Run ReviewPilot
