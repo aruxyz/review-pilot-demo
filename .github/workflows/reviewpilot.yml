@@ -30,9 +30,10 @@ jobs:
         env:
           BROWSER_USE_API_KEY: ${{ secrets.BROWSER_USE_API_KEY }}
         run: |
-          reviewpilot run --max-steps 10
+          reviewpilot run --max-steps 10 || true
 
       - name: Upload screenshots to release for inline view
+        if: always()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
