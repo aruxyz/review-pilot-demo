@@ -199,3 +199,14 @@ review-pilot-demo/
 ## License
 
 MIT
+
+## Deployment
+
+This demo is deployed to Vercel for ReviewPilot to review:
+
+- Production: https://review-pilot-demo.vercel.app
+- Framework: Next.js 14 (App Router)
+- Build: `npm run build`
+
+ReviewPilot runs AI browser QA against this URL to detect UX issues
+before they reach production.
