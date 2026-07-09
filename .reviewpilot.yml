@@ -1,0 +1,50 @@
+app:
+  name: "ReviewPilot Demo"
+  url: "https://review-pilot-demo.vercel.app"
+
+review:
+  mode: "pull_request"
+  max_steps: 10
+  timeout_seconds: 120
+
+browser_use:
+  enabled: true
+  task_model: "bu-latest"
+  headless: true
+
+viewports:
+  - name: "desktop"
+    width: 1440
+    height: 900
+  - name: "mobile"
+    width: 390
+    height: 844
+
+journeys:
+  - name: "Homepage review"
+    goal: "Open the homepage and check whether the primary navigation, hero section, and main CTA are visible and usable. Check for layout overflow on mobile."
+  - name: "Login flow"
+    goal: "Open the login page, inspect the form, test basic validation behavior, and verify whether the Sign In button becomes enabled when valid input is entered."
+  - name: "Navigation flow"
+    goal: "Explore the main navigation and footer links. Check whether important links are reachable and not broken."
+
+checks:
+  ux: true
+  broken_links: true
+  forms: true
+  mobile_layout: true
+  accessibility_basic: true
+  console_errors: true
+
+output:
+  markdown: true
+  html: true
+  screenshots: true
+  github_comment: false
+  output_dir: "reviewpilot-output"
+
+safety:
+  safe_mode: true
+  allow_form_submit: false
+  allow_destructive_actions: false
+  redact_secrets: true
